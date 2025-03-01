@@ -36,3 +36,41 @@ Replace `your_model_file.pkl` with the actual name of your model file.
 
 
 **How to Dockerise**
+
+**Build the Docker image:**
+
+Open a terminal in the directory where your `Dockerfile` is located and run the following command:
+
+**Bash**
+
+```
+docker build -t flask-ml-api --build-arg MODEL_NAME=your_model_file.pkl .
+```
+
+Replace `your_model_file.pkl` with the actual name of your model file.
+
+* `docker build`: Builds a Docker image.
+* `-t flask-ml-api`: Tags the image with the name `flask-ml-api`.
+* `--build-arg MODEL_NAME=your_model_file.pkl`: passes the model name argument to the docker build process.
+* `.`: Specifies the current directory as the build context.
+
+**Run the Docker container:**
+
+After the image is built, you can run a container from it:
+
+**Bash**
+
+```
+docker run -p 5000:5000 flask-ml-api
+```
+
+`docker run`: Runs a Docker container.
+
+`-p 5000:5000`: Maps port 5000 on your host machine to port 5000 in the container.
+
+`flask-ml-api`: Specifies the name of the image to run.
+
+
+**Access the API:**
+
+You can now access your Flask API at `http://localhost:5000`.
