@@ -65,16 +65,16 @@ def health_check():
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Flask API for model prediction.')
     parser.add_argument('--model', type=str, required=True, help='Path to the model pickle file.')
-    parser.add_argument('--app_type', type=str, default='flask', required=True, help='What type of app to run.')
+    parser.add_argument('--app_type', type=str, default='trial', required=True, help='What type of app to run.')
     args = parser.parse_args()
 
     model = load_model(args.model)
 
     if model is not None:
-        if args.app_type == 'flask':
+        if args.app_type == 'trial':
             app.run(debug=True, port=5000)
 
-        elif args.app_type == 'gunicorn':
+        elif args.app_type == 'production':
             # Production deployment using Gunicorn
             from gunicorn.app.base import BaseApplication
 
