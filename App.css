@@ -1,0 +1,26 @@
+/* React App (src/App.css) */
+.App {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .features-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .features-input div {
+    margin: 5px;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  .prediction {
+    margin-top: 10px;
+    font-weight: bold;
+  }
